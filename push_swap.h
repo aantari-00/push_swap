@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:09:01 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/20 07:54:10 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/21 05:31:56 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ typedef struct s_stack
 	int				data;
 	struct s_stack	*next;
 }					t_stack;
-// func rules;
+//--> func rules;
 void				sa(t_stack **a);
 void				sb(t_stack **b);
 void				ss(t_stack **a, t_stack **b);
@@ -30,7 +30,15 @@ void				rr(t_stack **a, t_stack **b);
 void				rra(t_stack **a);
 void				rrb(t_stack **b);
 void				rrr(t_stack **a, t_stack **b);
-// func stack utils
+//--> func stack utils 
 t_stack				*new_node(int value);
 void				add_back(t_stack **stack, t_stack *newnode);
+int					stack_size(t_stack **stack);
+t_stack				*last_node(t_stack **stack);
+void				free_stack(t_stack **stack);
+//--> func parsing 
+
+/*split*/
+char				**ft_split(char const *s, char c);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
 #endif

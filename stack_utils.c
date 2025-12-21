@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 07:03:59 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/20 07:55:20 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/21 02:57:11 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,42 @@ void	add_back(t_stack **stack, t_stack *newnode)
 		last = last->next;
 	last->next = newnode;
 	newnode->next = NULL;
+}
+int	stack_size(t_stack **stack)
+{
+	size_t	count;
+	t_stack	*tmp;
+
+	if (!stack || !*stack)
+		return (0);
+	count = 0;
+	tmp = *stack;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		count++;
+	}
+	return (count);
+}
+t_stack	*last_node(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !*stack)
+		return (NULL);
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
+}
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
 }
