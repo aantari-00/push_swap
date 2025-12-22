@@ -1,9 +1,9 @@
-NAME = push_swap.a
+NAME = push_swap
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(wildcard *.c)
+SRCS = $(shell find . -name "*.c")
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.c push_swap.h
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -23,3 +23,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+

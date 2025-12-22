@@ -8,7 +8,7 @@ static void    print_stack(t_stack *a)
         a = a->next;
     }
 }
-
+#include <string.h>
 int	main(int ac, char **av)
 {
 	char	**str;
@@ -17,11 +17,13 @@ int	main(int ac, char **av)
     a = NULL;
 	int i, j;
 	i = 1;
-	if (ac == 1)
-		print_error();
+	// if (ac == 1)
+	// 	return (0);
 	while (i < ac)
 	{
 		str = ft_split(av[i], ' ');
+		if (!str || av[i][0] == '\0')
+			return (0);
 		j = 0;
 		while (str[j])
 		{
