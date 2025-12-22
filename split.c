@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 05:13:14 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/21 05:27:37 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/22 00:41:05 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	ft_free_arr(char **arr)
 	free(arr);
 }
 
-static void	ft_fill_words(char const *s, char c, char **arr)
+static void	ft_fill_words(char *s, char c, char **arr)
 {
 	size_t	i;
 	size_t	start;
@@ -79,7 +79,7 @@ static void	ft_fill_words(char const *s, char c, char **arr)
 	arr[word] = NULL;
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	size_t	words;
 	char	**arr;

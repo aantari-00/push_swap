@@ -1,51 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/21 04:10:59 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/22 08:14:00 by aantari          ###   ########.fr       */
+/*   Created: 2025/12/22 05:31:38 by aantari           #+#    #+#             */
+/*   Updated: 2025/12/22 06:43:05 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	is_number(char *str)
+
+
+int	ft_atoi(const char *nptr)
 {
+	long	result;
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (str[i] == '+' || str[i] == '-')
+	j = 1;
+	result = 0;
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
-	while (!str[i])
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (str[i] < '0' || str[i] > '9')
-		{
-			write(1, "Error", 5);
-			return ;
-		}
+		if (nptr[i] == '-')
+			j *= -1;
 		i++;
 	}
-}
-static void	max_min_int(nbr)
-{
-	if (nbr > INT_MAX || nbr < INT_MIN)
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		write(1, "Error", 6);
+		result = result * 10 + (nptr[i] - '0');
+		i++;
 	}
-}
-
-void	runfunc(char *str)
-{
-	int		nb;
-	t_stack	*a;
-	t_stack	*newnode;
-
-	is_number(str);
-	nb = ft_atoi(str);
-	max_min_int(nb);
-	newnode = new_node(nb);
-	add_back(&a, newnode);
+	return (result * j);
 }

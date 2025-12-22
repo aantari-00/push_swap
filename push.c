@@ -3,7 +3,6 @@
 static int	push(t_stack **stack1, t_stack **stack2)
 {
 	t_stack	*first;
-	t_stack	*last;
 
 	if (!stack1 || !*stack1)
 		return (0);

@@ -4,7 +4,6 @@ static int	swap(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
-	int		swap;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return (0);

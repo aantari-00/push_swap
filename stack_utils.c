@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 07:03:59 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/21 02:57:11 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/22 07:48:03 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	stack_size(t_stack **stack)
 t_stack	*last_node(t_stack **stack)
 {
 	t_stack	*tmp;
+	
 
 	if (!stack || !*stack)
 		return (NULL);

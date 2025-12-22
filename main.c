@@ -1,31 +1,22 @@
 #include "push_swap.h"
-#include <stdio.h>
-
-int main(void)
+int	main(int ac, char **av)
 {
-    t_stack *a = NULL;
-    t_stack *b = NULL;
+	char	**str;
+	
 
-    /* build stack a */
-    push_back(&a, 3);
-    push_back(&a, 1);
-    push_back(&a, 2);
-
-    printf("Before:\n");
-    print_stack("a", a);
-    print_stack("b", b);
-
-    /* test rules */
-    sa(&a);
-    pb(&a, &b);
-    ra(&a);
-    rra(&a);
-    pa(&a, &b);
-
-    printf("\nAfter:\n");
-    print_stack("a", a);
-    print_stack("b", b);
-
-    return (0);
+	int i, j;
+	i = 1;
+	if (ac == 1)
+		return (0);
+	while (i < ac - 1)
+	{
+		str = ft_split(av[i], 32);
+		j = 0;
+		while (!str[j])
+		{
+			runfunc(str[j]);
+            j++;
+		}
+		i++;
+	}
 }
-
