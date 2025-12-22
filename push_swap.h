@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:09:01 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/22 08:10:33 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/22 09:47:43 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int					stack_size(t_stack **stack);
 t_stack				*last_node(t_stack **stack);
 void				free_stack(t_stack **stack);
 //--> func parsing 
-void	runfunc(char *str);
-int	ft_atoi(const char *nptr);
+void	runfunc(char *str, t_stack **a);
+long	ft_atoi(const char *nptr);
+void	print_error(void);
 /*split*/
 char				**ft_split(char *s, char c);
 char				*ft_substr(char *s, unsigned int start, size_t len);

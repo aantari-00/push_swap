@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 07:03:59 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/22 07:48:03 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/22 08:43:17 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	add_back(t_stack **stack, t_stack *newnode)
 	t_stack	*last;
 
 	if (!*stack)
+	
 	{
 		*stack = newnode;
 		return ;

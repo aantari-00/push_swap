@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 05:31:38 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/22 06:43:05 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/22 09:47:22 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	long	result;
 	size_t	i;
