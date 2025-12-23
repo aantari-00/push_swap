@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 07:03:59 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/22 08:43:17 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/23 04:28:26 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,30 @@ void	add_back(t_stack **stack, t_stack *newnode)
 	t_stack	*last;
 
 	if (!*stack)
-	
 	{
 		*stack = newnode;
 		return ;
 	}
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	last->next = newnode;
-	newnode->next = NULL;
+	else	
+	{
+		last = *stack;
+		while (newnode->next)
+			last = last->next;
+		if (newnode->data == last->data)
+			print_error();
+		last->next = newnode;
+		newnode->next = NULL;
+	}
 }
-int	stack_size(t_stack **stack)
+int	stack_size(t_stack *stack)
 {
 	size_t	count;
 	t_stack	*tmp;
 
-	if (!stack || !*stack)
+	if (!stack)
 		return (0);
 	count = 0;
-	tmp = *stack;
+	tmp = stack;
 	while (tmp)
 	{
 		tmp = tmp->next;
@@ -55,18 +59,17 @@ int	stack_size(t_stack **stack)
 	}
 	return (count);
 }
-t_stack	*last_node(t_stack **stack)
-{
-	t_stack	*tmp;
-	
+// t_stack	*last_node(t_stack **stack)
+// {
+// 	t_stack	*tmp;
 
-	if (!stack || !*stack)
-		return (NULL);
-	tmp = *stack;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
-}
+// 	if (!stack || !*stack)
+// 		return (NULL);
+// 	tmp = *stack;
+// 	while (tmp->next)
+// 		tmp = tmp->next;
+// 	return (tmp);
+// }
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;

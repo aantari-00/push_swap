@@ -1,42 +1,43 @@
 #include "push_swap.h"
 #include <stdio.h>
-static void    print_stack(t_stack *a)
+static void	print_stack(t_stack *a)
 {
-    while (a)
-    {
-        printf("%d\n", a->data);
-        a = a->next;
-    }
+	while (a)
+	{
+		printf("%d\n", a->data);
+		a = a->next;
+	}
 }
-#include <string.h>
+
 int	main(int ac, char **av)
 {
 	char	**str;
-    t_stack     *a;
-	
-    a = NULL;
+	t_stack	*a;
+
 	int i, j;
+	a = NULL;
 	i = 1;
-	// if (ac == 1)
-	// 	return (0);
 	while (i < ac)
 	{
-		if (av[i][0] == '\0')
+
+		if (av[i][0] == '\0' || just_space(av[i]))
+			print_error();
+		
+		if(check_space(av[i]))
 		{
-			write(1, "Error\n", 6);
-			return (0);
+			str = ft_split(av[i], ' ');
+			if (!str)
+				return (0);
+			j = 0;
+			while (str[j])
+			{
+				runfunc(str[j], &a);
+				j++;
+			}
 		}
-		str = ft_split(av[i], ' ');
-		if (!str)
-			return (0);
-		j = 0;
-		while (str[j])
-		{
-			runfunc(str[j], &a);
-            j++;
-		}
+		else
+			runfunc(av[i],&a);
 		i++;
 	}
-    print_stack(a);
-
+	print_stack(a);
 }
