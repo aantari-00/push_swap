@@ -21,8 +21,13 @@ int	main(int ac, char **av)
 	// 	return (0);
 	while (i < ac)
 	{
+		if (av[i][0] == '\0')
+		{
+			write(1, "Error\n", 6);
+			return (0);
+		}
 		str = ft_split(av[i], ' ');
-		if (!str || av[i][0] == '\0')
+		if (!str)
 			return (0);
 		j = 0;
 		while (str[j])
