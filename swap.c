@@ -22,12 +22,10 @@ void	sa(t_stack **a)
 void	sb(t_stack **b)
 {
 	if (swap(b))
-		;
-	write(1, "sb\n", 3);
+		write(1, "sb\n", 3);
 }
 void	ss(t_stack **a, t_stack **b)
 {
 	if (swap(a) && swap(b))
-		;
-	write(1, "ss\n", 3);
+		write(1, "ss\n", 3);
 }
