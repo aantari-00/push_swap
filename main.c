@@ -11,9 +11,8 @@ static void	print_stack(t_stack *a)
 
 int	main(int ac, char **av)
 {
-	char	**str;
 	t_stack	*a;
-
+	char	**str;
 	int i, j;
 	a = NULL;
 	i = 1;
@@ -22,7 +21,6 @@ int	main(int ac, char **av)
 
 		if (av[i][0] == '\0' || just_space(av[i]))
 			print_error();
-		
 		if(check_space(av[i]))
 		{
 			str = ft_split(av[i], ' ');

@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:09:01 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/23 04:39:11 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/23 14:04:17 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ void				runfunc(char *str, t_stack **a);
 long				ft_atoi(const char *nptr);
 int					print_error(void);
 int					just_space(char *str);
-int	check_space(char *str);
-	/*split*/
-	char **ft_split(char *s, char c);
+int					check_space(char *str);
+void				check_duplicate(t_stack *a, int value);
+/*split*/
+char				**ft_split(char *s, char c);
 char				*ft_substr(char *s, unsigned int start, size_t len);
 #endif
