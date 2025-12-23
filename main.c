@@ -8,34 +8,47 @@ static void	print_stack(t_stack *a)
 		a = a->next;
 	}
 }
+void	handle_arg(char *arg, t_stack **a)
+{
+	char	**str;
+	int		j;
+
+	if (arg[0] == '\0' || just_space(arg))
+		print_error();
+
+	if (check_space(arg)) 
+	{
+		str = ft_split(arg, ' ');
+		if (!str || !str[0])
+			print_error();
+		j = 0;
+		while (str[j])
+		{
+			runfunc(str[j], a);
+			j++;
+		}
+		
+	}
+	else
+		runfunc(arg, a);
+}
 
 int	main(int ac, char **av)
 {
 	t_stack	*a;
-	char	**str;
-	int i, j;
+	int		i;
+
 	a = NULL;
+	if (ac == 1)
+		return 0;
+
 	i = 1;
 	while (i < ac)
 	{
-
-		if (av[i][0] == '\0' || just_space(av[i]))
-			print_error();
-		if(check_space(av[i]))
-		{
-			str = ft_split(av[i], ' ');
-			if (!str)
-				return (0);
-			j = 0;
-			while (str[j])
-			{
-				runfunc(str[j], &a);
-				j++;
-			}
-		}
-		else
-			runfunc(av[i],&a);
+		handle_arg(av[i], &a);
 		i++;
 	}
 	print_stack(a);
+	free_stack(&a);
 }
+
