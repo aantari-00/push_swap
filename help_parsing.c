@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 04:31:31 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/23 14:03:56 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/24 00:28:42 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_duplicate(t_stack *a, int value)
 	while (a)
 	{
 		if (a->data == value)
-			print_error();
+			print_error(&a);
 		a = a->next;
 	}
 }

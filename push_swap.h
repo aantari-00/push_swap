@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:09:01 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/23 22:22:17 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/24 00:25:47 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void				free_stack(t_stack **stack);
 //--> func parsing
 void				runfunc(char *str, t_stack **a);
 long				ft_atoi(const char *nptr);
-int					print_error(void);
+int					print_error(t_stack **a);
 int					just_space(char *str);
 int					check_space(char *str);
 void				check_duplicate(t_stack *a, int value);
@@ -49,4 +49,5 @@ void				handle_arg(char *arg, t_stack **a);
 /*split*/
 char				**ft_split(char *s, char c);
 char				*ft_substr(char *s, unsigned int start, size_t len);
+void				ft_free_arr(char **arr);
 #endif

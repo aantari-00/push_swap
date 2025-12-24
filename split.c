@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 05:13:14 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/22 00:41:05 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/24 00:19:13 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static size_t	ft_count_word(const char *str, char c)
 	return (len);
 }
 
-static void	ft_free_arr(char **arr)
+void	ft_free_arr(char **arr)
 {
 	size_t	i;
 

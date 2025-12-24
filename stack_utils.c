@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 07:03:59 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/23 21:05:40 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/24 00:18:11 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	add_back(t_stack **stack, t_stack *newnode)
 		last = *stack;
 		while (last->next)
 			last = last->next;
-		if (newnode->data == last->data)
-			print_error();
 		last->next = newnode;
 		newnode->next = NULL;
 	}

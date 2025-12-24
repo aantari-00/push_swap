@@ -14,20 +14,20 @@ void	handle_arg(char *arg, t_stack **a)
 	int		j;
 
 	if (arg[0] == '\0' || just_space(arg))
-		print_error();
+		print_error(a);
 
 	if (check_space(arg)) 
 	{
 		str = ft_split(arg, ' ');
 		if (!str || !str[0])
-			print_error();
+			print_error(a);
 		j = 0;
 		while (str[j])
 		{
 			runfunc(str[j], a);
 			j++;
 		}
-		
+		ft_free_arr(str);
 	}
 	else
 		runfunc(arg, a);
