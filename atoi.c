@@ -6,13 +6,11 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 05:31:38 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/22 09:47:22 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/24 02:22:56 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 long	ft_atoi(const char *nptr)
 {

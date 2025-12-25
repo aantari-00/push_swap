@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpfunc.c                                         :+:      :+:    :+:   */
+/*   helpsplit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 05:25:07 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/22 00:29:52 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/24 02:32:13 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,17 @@ static char	*ft_strdup(char *s)
 	str[i] = '\0';
 	return (str);
 }
+
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {
-	char *str;
-	size_t i;
+	char	*str;
+	size_t	i;
 
 	i = 0;
 	if (!s)
 		return (NULL);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
-		
 	if (ft_strlen(s + start) < len)
 		len = ft_strlen(s + start);
 	str = malloc(len + 1);

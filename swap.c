@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/24 02:26:34 by aantari           #+#    #+#             */
+/*   Updated: 2025/12/24 02:28:52 by aantari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	swap(t_stack **stack)
@@ -14,16 +26,19 @@ static int	swap(t_stack **stack)
 	*stack = second;
 	return (1);
 }
+
 void	sa(t_stack **a)
 {
 	if (swap(a))
 		write(1, "sa\n", 3);
 }
+
 void	sb(t_stack **b)
 {
 	if (swap(b))
 		write(1, "sb\n", 3);
 }
+
 void	ss(t_stack **a, t_stack **b)
 {
 	if (swap(a) && swap(b))

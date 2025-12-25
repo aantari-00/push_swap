@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:12:00 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/20 07:55:01 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/24 02:28:21 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	reverse_rotate(t_stack **stack)
 	*stack = last;
 	return (1);
 }
+
 void	rra(t_stack **a)
 {
 	if (reverse_rotate(a))

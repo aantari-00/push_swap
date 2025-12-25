@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:09:09 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/20 06:11:37 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/24 02:28:31 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,19 @@ static int	rotate(t_stack **stack)
 	first->next = NULL;
 	return (1);
 }
+
 void	ra(t_stack **a)
 {
 	if (rotate(a))
 		write(1, "ra\n", 3);
 }
+
 void	rb(t_stack **b)
 {
 	if (rotate(b))
 		write(1, "rb\n", 3);
 }
+
 void	rr(t_stack **a, t_stack **b)
 {
 	if (rotate(a) && rotate(b))
