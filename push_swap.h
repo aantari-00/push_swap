@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:09:01 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/26 03:24:45 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/27 01:09:43 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -36,7 +37,7 @@ void				rrr(t_stack **a, t_stack **b);
 //--> func stack utils
 t_stack				*new_node(int value);
 void				add_back(t_stack **stack, t_stack *newnode);
-int	stack_size(t_stack *stack);
+int					stack_size(t_stack *stack);
 t_stack				*last_node(t_stack **stack);
 void				free_stack(t_stack **stack);
 //--> func parsing
@@ -51,7 +52,11 @@ void				handle_arg(char *arg, t_stack **a);
 char				**ft_split(char *s, char c);
 char				*ft_substr(char *s, unsigned int start, size_t len);
 void				ft_free_arr(char **arr);
-size_t	ft_strlen(char *s);
-// algo
-void	push_chunks(t_stack **a, t_stack **b);
+size_t				ft_strlen(char *s);
+//--> algo
+void				push_chunks(t_stack **a, t_stack **b);
+ t_stack  *find_bigg(t_stack  *b);
+ void    push_to_stack_a(t_stack **a, t_stack **b);
+void	print_stack(t_stack *b);
+ 
 #endif

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   algo_phase1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 03:05:35 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/26 03:48:19 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/27 01:01:10 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*stack_to_array(t_stack *a)
+static int	*stack_to_array(t_stack *a)
 {
 	int		*arr;
 	int		i;
@@ -34,7 +34,7 @@ int	*stack_to_array(t_stack *a)
 	return (arr);
 }
 
-int	*sort_arry(int *arr, int len)
+static int	*sort_arry(int *arr, int len)
 {
 	int	i;
 	int	j;
@@ -59,7 +59,7 @@ int	*sort_arry(int *arr, int len)
 	return (arr);
 }
 
-int	init_chunk(int size)
+static int	init_chunk(int size)
 {
 	int	end;
 

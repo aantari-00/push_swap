@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 02:26:19 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/24 02:30:02 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/27 05:17:45 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	pb(t_stack **a, t_stack **b)
 		write(1, "pb\n", 3);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **b, t_stack **a)
 {
 	if (push(b, a))
 		write(1, "pa\n", 3);

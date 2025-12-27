@@ -6,20 +6,23 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 02:26:03 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/26 03:57:52 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/27 04:45:08 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-static void	print_stack(t_stack *b)
+void	print_stack(t_stack *b)
 {
-	while (b)
+	t_stack	*tmp;
+	
+	tmp = b;
+	while (tmp)
 	{
-		printf("%d\n", b->data);
-		b = b->next;
+		printf("%d -> ", tmp->data);
+		tmp = tmp->next;
 	}
+	printf("NULL\n");
 }
 
 void	handle_arg(char *arg, t_stack **a)
@@ -53,6 +56,7 @@ int	main(int ac, char **av)
 	int		i;
 
 	a = NULL;
+	b = NULL;
 	if (ac == 1)
 		return (0);
 	i = 1;
@@ -63,5 +67,7 @@ int	main(int ac, char **av)
 	}
 	push_chunks(&a, &b);
 	print_stack(b);
+	push_to_stack_a(&a,&b);
 	free_stack(&a);
+	free_stack(&b);
 }
