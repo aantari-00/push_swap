@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 02:26:03 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/28 05:30:51 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/28 09:20:09 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,10 @@ void	handle_arg(char *arg, t_stack **a)
 		runfunc(arg, a);
 }
 
-int	main(int ac, char **av)
+static void	help_main(t_stack *a, t_stack *b)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	size;
 
-	int (i), (size);
-	if (ac == 1)
-		return (0);
-	i = 1;
-	while (i < ac)
-	{
-		handle_arg(av[i], &a);
-		i++;
-	}
 	size = stack_size(a);
 	if (!chech_is_sort(a))
 	{
@@ -76,4 +66,23 @@ int	main(int ac, char **av)
 		free_stack(&a);
 		free_stack(&b);
 	}
+}
+
+int	main(int ac, char **av)
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		i;
+
+	a = NULL;
+	b = NULL;
+	if (ac == 1)
+		return (0);
+	i = 1;
+	while (i < ac)
+	{
+		handle_arg(av[i], &a);
+		i++;
+	}
+	help_main(a, b);
 }
