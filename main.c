@@ -6,24 +6,24 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 02:26:03 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/27 04:45:08 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/28 05:30:51 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *b)
-{
-	t_stack	*tmp;
-	
-	tmp = b;
-	while (tmp)
-	{
-		printf("%d -> ", tmp->data);
-		tmp = tmp->next;
-	}
-	printf("NULL\n");
-}
+// void	print_stack(t_stack *b)
+// {
+// 	t_stack	*tmp;
+
+// 	tmp = b;
+// 	while (tmp)
+// 	{
+// 		printf("%d -> ", tmp->data);
+// 		tmp = tmp->next;
+// 	}
+// 	printf("NULL\n");
+// }
 
 void	handle_arg(char *arg, t_stack **a)
 {
@@ -53,10 +53,8 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		i;
 
-	a = NULL;
-	b = NULL;
+	int (i), (size);
 	if (ac == 1)
 		return (0);
 	i = 1;
@@ -65,9 +63,17 @@ int	main(int ac, char **av)
 		handle_arg(av[i], &a);
 		i++;
 	}
-	push_chunks(&a, &b);
-	print_stack(b);
-	push_to_stack_a(&a,&b);
-	free_stack(&a);
-	free_stack(&b);
+	size = stack_size(a);
+	if (!chech_is_sort(a))
+	{
+		if (size < 6)
+			small_sort(&a, &b);
+		else if (size > 6)
+		{
+			push_chunks(&a, &b);
+			push_to_stack_a(&a, &b);
+		}
+		free_stack(&a);
+		free_stack(&b);
+	}
 }

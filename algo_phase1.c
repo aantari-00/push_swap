@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 03:05:35 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/27 01:01:10 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/27 05:56:25 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static int	init_chunk(int size)
 		end = size / 14;
 	return (end);
 }
+
 static void	push_to_b(t_stack **a, t_stack **b, int *start, int *end)
 {
 	pb(a, b);
@@ -80,7 +81,11 @@ static void	push_to_b(t_stack **a, t_stack **b, int *start, int *end)
 
 void	push_chunks(t_stack **a, t_stack **b)
 {
-	int(start), (end), (size), (*sort_arr);
+	int	*sort_arr;
+	int	size;
+	int	end;
+	int	start;
+
 	start = 0;
 	size = stack_size(*a);
 	sort_arr = sort_arry(stack_to_array(*a), size);

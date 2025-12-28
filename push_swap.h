@@ -6,16 +6,16 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 06:09:01 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/27 01:09:43 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/28 05:31:40 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <limits.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -55,8 +55,11 @@ void				ft_free_arr(char **arr);
 size_t				ft_strlen(char *s);
 //--> algo
 void				push_chunks(t_stack **a, t_stack **b);
- t_stack  *find_bigg(t_stack  *b);
- void    push_to_stack_a(t_stack **a, t_stack **b);
-void	print_stack(t_stack *b);
- 
+t_stack				*find_bigg(t_stack *b);
+void				push_to_stack_a(t_stack **a, t_stack **b);
+void				print_stack(t_stack *b);
+int					get_position(t_stack *b, t_stack *bigg);
+void				small_sort(t_stack **a, t_stack **b);
+int					chech_is_sort(t_stack *a);
+
 #endif

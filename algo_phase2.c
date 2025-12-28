@@ -6,7 +6,7 @@
 /*   By: aantari <aantari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 16:12:44 by aantari           #+#    #+#             */
-/*   Updated: 2025/12/27 05:19:14 by aantari          ###   ########.fr       */
+/*   Updated: 2025/12/27 07:01:19 by aantari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ t_stack	*find_bigg(t_stack *b)
 	return (bigg);
 }
 
-static int	get_position(t_stack *b, t_stack *bigg)
+int	get_position(t_stack *b, t_stack *bigg)
 {
-	int	i;
+	int		i;
 	t_stack	*tmp;
 
 	i = 0;
@@ -44,15 +44,15 @@ static int	get_position(t_stack *b, t_stack *bigg)
 	return (0);
 }
 
-static void	get_operation(t_stack **a ,t_stack **b)
+static void	get_operation(t_stack **a, t_stack **b)
 {
-	int		(size), (pos);
 	t_stack	*bigg;
 
+	int (size), (pos);
 	size = stack_size(*b);
 	bigg = find_bigg(*b);
 	pos = get_position(*b, bigg);
-	if ( pos <= size / 2)
+	if (pos <= size / 2)
 	{
 		while (pos > 0)
 		{
@@ -71,14 +71,11 @@ static void	get_operation(t_stack **a ,t_stack **b)
 	}
 	pa(b, a);
 }
-void    push_to_stack_a(t_stack **a, t_stack **b)
+
+void	push_to_stack_a(t_stack **a, t_stack **b)
 {
-    while(*b)
-    {
-		printf("Before: ");
-		print_stack(*a);
-        get_operation(a,b);
-		printf("After: ");
-        print_stack(*a);
-    }
+	while (*b)
+	{
+		get_operation(a, b);
+	}
 }
