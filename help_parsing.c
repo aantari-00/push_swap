@@ -26,14 +26,15 @@ int	check_space(char *str)
 	return (0);
 }
 
-void	check_duplicate(t_stack *a, int value)
+int	check_duplicate(t_stack *a, int value)
 {
 	while (a)
 	{
 		if (a->data == value)
-			print_error(&a);
+			return (1);
 		a = a->next;
 	}
+	return (0);
 }
 
 int	chech_is_sort(t_stack *a)

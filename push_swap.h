@@ -41,13 +41,13 @@ int					stack_size(t_stack *stack);
 t_stack				*last_node(t_stack **stack);
 void				free_stack(t_stack **stack);
 //--> func parsing
-void				runfunc(char *str, t_stack **a);
+int					runfunc(char *str, t_stack **a);
 long				ft_atoi(const char *nptr);
-int					print_error(t_stack **a);
+void				print_error_msg(void);
 int					just_space(char *str);
 int					check_space(char *str);
-void				check_duplicate(t_stack *a, int value);
-void				handle_arg(char *arg, t_stack **a);
+int					check_duplicate(t_stack *a, int value);
+int					handle_arg(char *arg, t_stack **a);
 /*split*/
 char				**ft_split(char *s, char c);
 char				*ft_substr(char *s, unsigned int start, size_t len);

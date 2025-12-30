@@ -12,12 +12,9 @@
 
 #include "push_swap.h"
 
-int	print_error(t_stack **a)
+void	print_error_msg(void)
 {
-	if (a)
-		free_stack(a);
 	write(1, "Error\n", 6);
-	exit(1);
 }
 
 int	just_space(char *str)
@@ -34,40 +31,46 @@ int	just_space(char *str)
 	return (1);
 }
 
-static void	is_number(char *str, t_stack **a)
+static int	is_number(char *str)
 {
 	size_t	i;
 
 	i = 0;
 	if (str[0] == '\0')
-		print_error(a);
+		return (1);
 	if (str[i] == '+' || str[i] == '-')
 		i++;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			print_error(a);
+			return (1);
 		i++;
 	}
+	return (0);
 }
 
-static void	max_min_int(long nbr, t_stack **a)
+static int	max_min_int(long nbr)
 {
 	if (nbr > INT_MAX || nbr < INT_MIN)
-		print_error(a);
+		return (1);
+	return (0);
 }
 
-void	runfunc(char *str, t_stack **a)
+int	runfunc(char *str, t_stack **a)
 {
 	long	nb;
 	t_stack	*newnode;
 
 	if (!str || str[0] == '\0')
-		print_error(a);
-	is_number(str, a);
+		return (1);
+	if (is_number(str) == 1)
+		return (1);
 	nb = ft_atoi(str);
-	max_min_int(nb, a);
-	check_duplicate(*a, (int)nb);
+	if (max_min_int(nb) == 1)
+		return (1);
+	if (check_duplicate(*a, (int)nb) == 1)
+		return (1);
 	newnode = new_node(nb);
 	add_back(a, newnode);
+	return (0);
 }

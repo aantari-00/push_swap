@@ -25,28 +25,48 @@
 // 	printf("NULL\n");
 // }
 
-void	handle_arg(char *arg, t_stack **a)
+int	handle_arg(char *arg, t_stack **a)
 {
 	char	**str;
 	int		j;
 
 	if (arg[0] == '\0' || just_space(arg))
-		print_error(a);
+	{
+		print_error_msg();
+		return (1);
+	}
 	if (check_space(arg))
 	{
 		str = ft_split(arg, ' ');
 		if (!str || !str[0])
-			print_error(a);
+		{
+			if (str)
+				ft_free_arr(str);
+			print_error_msg();
+			return (1);
+		}
 		j = 0;
 		while (str[j])
 		{
-			runfunc(str[j], a);
+			if (runfunc(str[j], a) == 1)
+			{
+				ft_free_arr(str);
+				print_error_msg();
+				return (1);
+			}
 			j++;
 		}
 		ft_free_arr(str);
 	}
 	else
-		runfunc(arg, a);
+	{
+		if (runfunc(arg, a) == 1)
+		{
+			print_error_msg();
+			return (1);
+		}
+	}
+	return (0);
 }
 
 static void	help_main(t_stack *a, t_stack *b)
@@ -81,7 +101,11 @@ int	main(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		handle_arg(av[i], &a);
+		if (handle_arg(av[i], &a) == 1)
+		{
+			free_stack(&a);
+			exit(1);
+		}
 		i++;
 	}
 	help_main(a, b);
