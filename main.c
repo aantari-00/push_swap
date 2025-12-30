@@ -12,59 +12,42 @@
 
 #include "push_swap.h"
 
-// void	print_stack(t_stack *b)
-// {
-// 	t_stack	*tmp;
-
-// 	tmp = b;
-// 	while (tmp)
-// 	{
-// 		printf("%d -> ", tmp->data);
-// 		tmp = tmp->next;
-// 	}
-// 	printf("NULL\n");
-// }
-
-int	handle_arg(char *arg, t_stack **a)
+static int	handle_split(char *arg, t_stack **a)
 {
 	char	**str;
 	int		j;
 
-	if (arg[0] == '\0' || just_space(arg))
+	str = ft_split(arg, ' ');
+	if (!str || !str[0])
 	{
-		print_error_msg();
+		if (str)
+			ft_free_arr(str);
 		return (1);
 	}
+	j = 0;
+	while (str[j])
+	{
+		if (runfunc(str[j], a) == 1)
+			return (ft_free_arr(str), 1);
+		j++;
+	}
+	ft_free_arr(str);
+	return (0);
+}
+
+int	handle_arg(char *arg, t_stack **a)
+{
+	if (arg[0] == '\0' || just_space(arg))
+		return (print_error_msg(), 1);
 	if (check_space(arg))
 	{
-		str = ft_split(arg, ' ');
-		if (!str || !str[0])
-		{
-			if (str)
-				ft_free_arr(str);
-			print_error_msg();
-			return (1);
-		}
-		j = 0;
-		while (str[j])
-		{
-			if (runfunc(str[j], a) == 1)
-			{
-				ft_free_arr(str);
-				print_error_msg();
-				return (1);
-			}
-			j++;
-		}
-		ft_free_arr(str);
+		if (handle_split(arg, a) == 1)
+			return (print_error_msg(), 1);
 	}
 	else
 	{
 		if (runfunc(arg, a) == 1)
-		{
-			print_error_msg();
-			return (1);
-		}
+			return (print_error_msg(), 1);
 	}
 	return (0);
 }
@@ -78,7 +61,7 @@ static void	help_main(t_stack *a, t_stack *b)
 	{
 		if (size < 6)
 			small_sort(&a, &b);
-		else if (size > 6)
+		else
 		{
 			push_chunks(&a, &b);
 			push_to_stack_a(&a, &b);
